@@ -15,14 +15,14 @@ export default function Dashboard() {
         throw new Error(`HTTP error! Status: ${res.status}`);
       }
   
-      const text = await res.text(); // Get response as text
+      const text = await res.text();  
       if (!text) {
         console.warn("Empty response from API");
         setTransactions([]);
         return;
       }
   
-      const data = JSON.parse(text); // Convert to JSON
+      const data = JSON.parse(text);  
       setTransactions(data);
       processSummaryData(data);
     } catch (error) {
@@ -56,8 +56,7 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen flex flex-col items-center bg-black text-white p-6">
       <h1 className="text-3xl font-bold text-green-500 mb-6">📊 Dashboard</h1>
-
-      {/* Summary Cards */}
+ 
       <div className="grid grid-cols-3 gap-6 w-full max-w-4xl mb-6">
         <div className="bg-gray-900 p-6 rounded-xl shadow-lg text-center">
           <h3 className="text-lg font-semibold text-gray-400">Total Expenses</h3>
@@ -72,8 +71,7 @@ export default function Dashboard() {
           <p className="text-2xl font-bold text-green-400">{transactions.length}</p>
         </div>
       </div>
-
-      {/* Category-wise Pie Chart */}
+ 
       <div className="bg-gray-900 p-6 rounded-xl shadow-lg w-full max-w-4xl flex flex-col items-center">
         <h3 className="text-xl font-bold text-white mb-4">Category Breakdown</h3>
         <ResponsiveContainer width="100%" height={300}>
@@ -87,8 +85,7 @@ export default function Dashboard() {
           </PieChart>
         </ResponsiveContainer>
       </div>
-
-      {/* Recent Transactions */}
+ 
       <div className="bg-gray-900 p-6 rounded-xl shadow-lg w-full max-w-4xl mt-6">
         <h3 className="text-xl font-bold text-white mb-4">Recent Transactions</h3>
         <ul>

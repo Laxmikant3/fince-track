@@ -4,8 +4,7 @@ export default function ExpenseChart({ transactions }) {
   if (!transactions || transactions.length === 0) {
     return <div className="text-gray-400 text-center p-4">No data available</div>;
   }
-
-  // Process transactions
+ 
   const data = transactions.reduce((acc, txn) => {
     const date = new Date(txn.date);
     const month = date.toLocaleString("default", { month: "short" });
@@ -22,7 +21,7 @@ export default function ExpenseChart({ transactions }) {
     dates: values.map((txn) => txn.date).join(", "),
   }));
 
-  console.log("Chart Data:", chartData); // Debugging
+  console.log("Chart Data:", chartData);  
 
   return (
     <div className="w-full max-w-3xl mx-auto bg-white p-6 rounded-2xl shadow-xl min-h-[300px]">

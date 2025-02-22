@@ -7,8 +7,6 @@ export default function TransactionForm({ fetchTransactions, transactionToEdit, 
     description: "",
     category: "",
   });
-
-  // Populate form if editing an existing transaction
   useEffect(() => {
     if (transactionToEdit) {
       setForm({
@@ -25,7 +23,6 @@ export default function TransactionForm({ fetchTransactions, transactionToEdit, 
   async function handleSubmit(e) {
     e.preventDefault();
 
-    // Convert amount to number before submitting
     const payload = { ...form, amount: Number(form.amount) };
 
     const method = transactionToEdit ? "PUT" : "POST";
@@ -40,8 +37,8 @@ export default function TransactionForm({ fetchTransactions, transactionToEdit, 
     });
 
     fetchTransactions();
-    setTransactionToEdit(null); // Reset edit mode
-    setForm({ amount: "", date: "", description: "", category: "" }); // Clear form
+    setTransactionToEdit(null); 
+    setForm({ amount: "", date: "", description: "", category: "" }); 
   }
 
   return (

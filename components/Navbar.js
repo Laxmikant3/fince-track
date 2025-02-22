@@ -13,6 +13,9 @@ export default function Navbar() {
         <li>
           <Link href="/dashboard" className="hover:text-green-400">Dashboard</Link>
         </li>
+        <li>
+          <Link href="/budgeting" className="hover:text-yellow-400">Budgeting</Link>
+        </li>
       </ul>
     </nav>
   );

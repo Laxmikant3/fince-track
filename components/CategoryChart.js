@@ -5,7 +5,6 @@ export default function CategoryChart({ transactions }) {
     return <div className="text-gray-400 text-center p-4">No data available</div>;
   }
 
-  // Group transactions by category
   const categoryData = transactions.reduce((acc, txn) => {
     const category = txn.category || "Others";
     acc[category] = (acc[category] || 0) + txn.amount;
